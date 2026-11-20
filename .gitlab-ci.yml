@@ -1,0 +1,20 @@
+# CI pipeline
+#
+# Tests the plugin with Go and checks that Yaegi, the interpreter Traefik runs
+# plugins with, can load it.
+test:
+  image: golang:1.26
+  tags:
+    - linux
+  script:
+    - test -z "$(gofmt -l .)"
+    - go vet ./...
+    - go test ./...
+
+yaegi:
+  image: golang:1.26
+  tags:
+    - linux
+  script:
+    - go install github.com/traefik/yaegi/cmd/yaegi@latest
+    - yaegi test -v .

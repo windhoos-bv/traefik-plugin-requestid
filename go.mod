@@ -1,3 +1,3 @@
-module github.com/windhoos-bv/requestid
+module traefik-plugin-requestid
 
 go 1.22

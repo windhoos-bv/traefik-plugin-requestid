@@ -9,10 +9,9 @@ replaced, unless `trustIncoming: true` is set (only behind a proxy you trust).
 
 ## Use
 
-Traefik loads it as a local plugin. Put this repo in
-`plugins-local/src/github.com/windhoos-bv/requestid` under Traefik's working
-directory. The module name is the path Traefik looks in, it doesn't have to
-match where the code is hosted.
+Traefik loads it as a local plugin. Clone this repo to
+`plugins-local/src/traefik-plugin-requestid` under Traefik's working directory;
+that directory must match `moduleName` and the `import` in `.traefik.yml`.
 
 Static config:
 
@@ -20,7 +19,7 @@ Static config:
 experimental:
   localPlugins:
     requestid:
-      moduleName: github.com/windhoos-bv/requestid
+      moduleName: traefik-plugin-requestid
 entryPoints:
   websecure:
     http:

@@ -1,6 +1,9 @@
 displayName: Request ID
 type: middleware
-import: github.com/windhoos-bv/requestid
+import: traefik-plugin-requestid
+# The Go package is requestid; without this traefik would look for
+# traefik_plugin_requestid, derived from the import path.
+basePkg: requestid
 summary: Sets a random request id header on every request and response.
 
 testData:
